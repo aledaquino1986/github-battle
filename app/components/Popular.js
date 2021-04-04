@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "Javascript", "Ruby", "CSS", "Python", "Java"];
@@ -9,9 +10,9 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
           <li key={language}>
             <button
               style={
-                language === { selected } ? { color: "rgb(187, 42, 31" } : null
+                language === selected ? { color: "rgb(187, 42, 31)" } : null
               }
-              onClick={() => onUpdateLanguage(langugage)}
+              onClick={() => onUpdateLanguage(language)}
               className="btn-clear nav-link"
             >
               {language}{" "}
@@ -22,6 +23,11 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
     </ul>
   );
 }
+
+LanguagesNav.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired
+};
 
 class Popular extends Component {
   constructor(props) {
@@ -39,12 +45,12 @@ class Popular extends Component {
     });
   }
   render() {
-    const { selectedLangugae } = this.state;
+    const { selectedLanguage } = this.state;
 
     return (
       <>
         <LanguagesNav
-          selected={selectedLangugae}
+          selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
       </>
