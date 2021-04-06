@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import PropTypes from "prop-types";
 
+import Results from "./Results";
+
 function Instruction() {
   return (
     <div className="instructions-container">
@@ -130,7 +132,8 @@ export default class Battle extends Component {
     super(props);
     this.state = {
       playerOne: null,
-      playerTwo: null
+      playerTwo: null,
+      battle: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -149,7 +152,11 @@ export default class Battle extends Component {
     });
   }
   render() {
-    const { playerOne, playerTwo } = this.state;
+    const { playerOne, playerTwo, battle } = this.state;
+
+    if (battle === true) {
+      return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+    }
 
     return (
       <>
@@ -184,6 +191,15 @@ export default class Battle extends Component {
               label="Player Two"
               onReset={() => this.handleReset("playerTwo")}
             />
+          )}
+
+          {playerOne && playerTwo && (
+            <button
+              onClick={() => this.setState({ battle: true })}
+              className="btn dark-btn btn-space"
+            >
+              Battle
+            </button>
           )}
         </div>
       </>
