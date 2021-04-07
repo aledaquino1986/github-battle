@@ -7,6 +7,7 @@ import {
   FaExclamationTriangle
 } from "react-icons/fa";
 import Card from "./Card";
+import Loading from "./Loading";
 
 import { fetchPopularRepos } from "../utils/api";
 
@@ -152,7 +153,7 @@ class Popular extends Component {
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
-        {this.isLoading() && <p>LOADING</p>}
+        {this.isLoading() && <Loading text="Fetching repos" />}
 
         {error && <p className="center-text error">{error}</p>}
 

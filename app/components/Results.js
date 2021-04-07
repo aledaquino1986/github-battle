@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import Card from "./Card";
 import { battle } from "../utils/api";
-
+import Loading from "./Loading";
 import PropTypes from "prop-types";
 
 function ProfileList({ profile }) {
@@ -82,7 +82,7 @@ export default class Results extends Component {
     const { winner, loser, error, loading } = this.state;
 
     if (loading === true) {
-      return <p>LOADING</p>;
+      return <Loading text="Fetching users" speed={250} />;
     }
 
     if (error) {
@@ -120,7 +120,7 @@ export default class Results extends Component {
 }
 
 Results.propTypes = {
-  palayerOne: PropTypes.string.isRequired,
+  playerOne: PropTypes.string.isRequired,
   playerTwo: PropTypes.string.isRequired,
   onReset: PropTypes.func.isRequired
 };
