@@ -12,6 +12,8 @@ import { battle } from "../utils/api";
 import Loading from "./Loading";
 import PropTypes from "prop-types";
 
+import Tooltip from "./Tooltip";
+
 function ProfileList({ profile }) {
   return (
     <ul className="card-list">
@@ -22,15 +24,19 @@ function ProfileList({ profile }) {
 
       {profile.location && (
         <li>
-          <FaCompass color="rgb(144, 115, 255)" size={22} />
-          {profile.location}
+          <Tooltip text="User's location">
+            <FaCompass color="rgb(144, 115, 255)" size={22} />
+            {profile.location}
+          </Tooltip>
         </li>
       )}
 
       {profile.company && (
         <li>
-          <FaBriefcase color="#795548" size={22} />
-          {profile.company}
+          <Tooltip text="User's Company">
+            <FaBriefcase color="#795548" size={22} />
+            {profile.company}
+          </Tooltip>
         </li>
       )}
       <li>
