@@ -25,7 +25,7 @@ class App extends Component {
         <div className={this.state.theme}>
           <div className="container">
             <Nav />
-            <Battle />
+            <Popular />
           </div>
         </div>
       </ThemeProvider>
