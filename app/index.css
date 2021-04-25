@@ -59,6 +59,14 @@ li {
   justify-content: space-around;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
+.nav li {
+  margin-right: 10px;
+}
+
 .header-lg {
   font-size: 35px;
   font-weight: 300;
