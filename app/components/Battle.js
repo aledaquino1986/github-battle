@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { ThemeConsumer } from "../contexts/theme";
+import { Link } from "react-router-dom";
 
 import Results from "./Results";
 
@@ -153,8 +154,7 @@ export default class Battle extends Component {
     super(props);
     this.state = {
       playerOne: null,
-      playerTwo: null,
-      battle: false
+      playerTwo: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -173,23 +173,7 @@ export default class Battle extends Component {
     });
   }
   render() {
-    const { playerOne, playerTwo, battle } = this.state;
-
-    if (battle === true) {
-      return (
-        <Results
-          playerOne={playerOne}
-          playerTwo={playerTwo}
-          onReset={() =>
-            this.setState({
-              playerOne: null,
-              playerTwo: null,
-              battle: false
-            })
-          }
-        />
-      );
-    }
+    const { playerOne, playerTwo } = this.state;
 
     return (
       <>
@@ -227,12 +211,15 @@ export default class Battle extends Component {
           )}
 
           {playerOne && playerTwo && (
-            <button
-              onClick={() => this.setState({ battle: true })}
+            <Link
+              to={{
+                pathname: "/battle/results",
+                search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`
+              }}
               className="btn dark-btn btn-space"
             >
               Battle
-            </button>
+            </Link>
           )}
         </div>
       </>
