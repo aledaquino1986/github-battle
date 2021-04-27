@@ -24,4 +24,4 @@ For more information on the course, visit **[ui.dev/react](https://ui.dev/react/
 
 This project is a "Github Battle" app. You'll be able to see the most popular repos for a variety of languages as well as battle two Github users to see who has the better profile.
 
-You can view the final project at **[github-battle.ui.dev](https://gb-battle-project.netlify.app/)**
+You can view the final project at **[https://gb-battle-project.netlify.app/](https://gb-battle-project.netlify.app/)**
