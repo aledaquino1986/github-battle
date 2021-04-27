@@ -13,15 +13,10 @@ const styles = {
 };
 
 class Loading extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      content: props.text
-    };
-  }
-
-  componentDidMount() {
+  state = {
+    content: this.props.text
+  };
+  componentDidMount = () => {
     const { speed, text } = this.props;
     this.interval = window.setInterval(() => {
       this.state.content === text + "..."
@@ -34,11 +29,11 @@ class Loading extends Component {
             };
           });
     }, speed);
-  }
+  };
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     window.clearInterval(this.interval);
-  }
+  };
   render() {
     return <p style={styles.content}>{this.state.content}</p>;
   }
