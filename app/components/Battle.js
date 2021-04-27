@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 import { ThemeConsumer } from "../contexts/theme";
 import { Link } from "react-router-dom";
 
-import Results from "./Results";
-
 function Instruction() {
   return (
     <ThemeConsumer>
